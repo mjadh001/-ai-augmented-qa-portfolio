@@ -71,6 +71,19 @@ def test_logout(page: Page):
 
      expect(page.locator("[data-test=\"login-button\"]")).to_be_visible()
 
+def test_login_with_whitespace_in_username(page: Page):
+    page.goto("https://www.saucedemo.com/")
+    page.locator("[data-test=\"username\"]").fill("    standard_user     ")
+    page.locator("[data-test=\"password\"]").fill("secret_sauce")
+    page.locator("[data-test=\"password\"]").press("Enter")
+
+    # We don't know yet whether the app trims whitespace or not -
+    # so we check what ACTUALLY happens, which is the point of this test.
+    # If login succeeds despite the spaces, that tells us the app trims input.
+    # If it fails, that's a legitimate finding worth noting.
+    expect(page.locator("[data-test=\"error\"]")).to_be_visible()
+    #Test passed which confirms that login field does not trim leading/trailing whitespaces
+    #- an AI-suggested edge case that a manual review might have skipped
 
      
 
