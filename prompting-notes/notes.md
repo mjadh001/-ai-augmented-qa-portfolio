@@ -16,3 +16,12 @@
 	4. Using structured tags in your prompts makes output more scannable, extractable, and reusable 
 	than unstructured prose. When you need reusability and clarity structure beats prose. 
 	Example - Put the summary in <summary> tags and the test cases in <test_cases> tags.
+
+	--------------------------------------------------------------------------------------------------
+	Why does AI Assertion matters for testing dynamic content?
+	- Traditional assertions require an exact string match so they break the moment wording changes even slightly.
+	Ex: if a product team A/B tests different confirmation copy, translates the site or the content itself becomes
+	AI generated and varies each time. A semantic/LLM based assertion confirms if the message correctly confirms the order,
+	so it keeps working correctly regardless of exact phrasing, as long as the underlying meaning is right. This matters 
+	increasingly for real-world testing, since more UI content (chatbot responses, personalized messages, AI-generated summaries)
+	is dynamic by design rather than fixed text
